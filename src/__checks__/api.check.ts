@@ -1,14 +1,15 @@
 import * as path from 'path'
 import { ApiCheck, AssertionBuilder, CheckGroup } from 'checkly/constructs'
-import { websiteGroup } from './website-group.check'
+import { groupA, groupB } from './group.check'
 
-function createApiChecks(websiteGroup: CheckGroup) {
+function createApiChecks(groupPassed: CheckGroup) {
   let apiChecks = [];
   
   for (let i = 1; i <= 8; i++) {
-    let apiCheck = new ApiCheck(`homepage-api-check-${i}`, {
-      name: `Fetch Book List ${i}`,
-      group: websiteGroup,
+    let apiCheck = new ApiCheck(`homepage-api-check-${i}-${groupPassed.name.trim()}`, {
+      name: `Fetch Book List ${i} ${groupPassed.name.trim()}`,
+      group: groupPassed,
+      tags: [groupPassed.name.trim()],
       degradedResponseTime: 10000,
       maxResponseTime: 20000,
       setupScript: {
@@ -32,4 +33,5 @@ function createApiChecks(websiteGroup: CheckGroup) {
   return apiChecks;
 }
 
-createApiChecks(websiteGroup)
+createApiChecks(groupA)
+createApiChecks(groupB)

@@ -22,6 +22,6 @@ export const websiteGroup = new CheckGroup('website-check-group-1', {
   tags: ['mac', 'group'],
   environmentVariables: [],
   apiCheckDefaults: {},
-  concurrency: 100,
+  concurrency: 1,
   alertChannels,
 })

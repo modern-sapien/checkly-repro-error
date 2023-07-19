@@ -7,12 +7,11 @@
  * For more info see: https://www.checklyhq.com/docs/api-checks/setup-teardown-scripts/#setup-scripts
  */
 
-import { getToken } from './auth-client'
+import { getToken } from './auth-client';
 
-async function setup () {
-  const token = await getToken()
-  request.headers['X-My-Auth-Header'] = token
+async function setup() {
+  const token = await getToken();
+  request.headers['X-My-Auth-Header'] = token;
 }
 
-await setup()
-
+await setup();

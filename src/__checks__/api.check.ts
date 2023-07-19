@@ -62,3 +62,23 @@ new ApiCheck('homepage-api-check-3', {
     ],
   }
 })
+
+new ApiCheck('homepage-api-check-4', {
+  name: 'Fetch Book List 4',
+  group: websiteGroup,
+  degradedResponseTime: 10000,
+  maxResponseTime: 20000,
+  setupScript: {
+    entrypoint: path.join(__dirname, './utils/setup.ts')
+  },
+  request: {
+    url: 'https://danube-web.shop/api/books',
+    method: 'GET',
+    followRedirects: true,
+    skipSSL: false,
+    assertions: [
+      AssertionBuilder.statusCode().equals(200),
+      AssertionBuilder.jsonBody('$[0].id').isNotNull(),
+    ],
+  }
+})

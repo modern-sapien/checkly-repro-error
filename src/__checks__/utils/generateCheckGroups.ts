@@ -31,11 +31,11 @@ export async function createApiCheck(urlItem, groupItem) {
   let apiCheck = new ApiCheck(
     `api-${urlItem}-${groupItem.name.split(' ').join('-').trim()}`,
     {
-      name: `API  [${groupItem.name.split(' ')[0]}] ${
+      name: `API  [${groupItem.name.split(' ')}] ${
         groupItem.name.split(' ')[1]
       } ${urlItem}`,
       group: groupItem,
-      tags: [urlItem, `${grouptItem.name.split(' ')[1]}`],
+      tags: [urlItem, `${groupItem.name.split(' ')[1]}`],
       request: {
         url: `https://${urlItem}.com}`,
         method: 'GET',

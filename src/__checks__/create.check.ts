@@ -12,8 +12,8 @@ async function createChecks() {
   const allGroups = [];
   const allApiChecks = [];
 
-  for (const regionItem of regionList) {
-    for (const groupItem of groupList) {
+  for (const groupItem of groupList) {
+    for (const regionItem of regionList) {
       const group = await createGroupCheck(groupItem, regionItem);
       allGroups.push(group);
     }

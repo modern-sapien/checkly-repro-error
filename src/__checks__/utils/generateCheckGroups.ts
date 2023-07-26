@@ -35,7 +35,7 @@ export async function createApiCheck(urlItem, groupItem) {
         groupItem.name.split(' ')[1]
       } ${urlItem}`,
       group: groupItem,
-      tags: [urlItem],
+      tags: [urlItem, `${grouptItem.name.split(' ')[1]}`],
       request: {
         url: `https://${urlItem}.com}`,
         method: 'GET',
